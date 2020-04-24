@@ -20,6 +20,7 @@ public class Hero {
         this.mWeakness = mWeakness;
         this.mDefence = mDefence;
         this.mAttack = mAttack;
+        heroes.add(this);
     }
 
 
