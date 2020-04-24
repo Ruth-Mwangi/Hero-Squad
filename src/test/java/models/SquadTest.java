@@ -9,10 +9,10 @@ import static org.junit.Assert.*;
 
 public class SquadTest {
 
-    @After
-    public void tearDown() throws Exception {
-        Squad.clearAll();
-    }
+//    @After
+//    public void tearDown() throws Exception {
+//        Squad.clearAll();
+//    }
     @Test
     public void createInstanceOfSquad() throws Exception{
         Squad squad= setUpNewSquad();
@@ -40,6 +40,18 @@ public class SquadTest {
         Squad otherSquad=setUpNewSquad();
         Squad foundSquad=Squad.findById(1);
         assertEquals(squad,foundSquad);
+    }
+
+    @Test
+    public void deleteHeroFromSquad() {
+        Squad squad=setUpNewSquad();
+        Squad otherSquad=setUpNewSquad();
+        ArrayList<Hero> formerHero=squad.getHeroes();
+        squad.deleteHero(1);
+        assertEquals(1,formerHero.size());
+        assertEquals(formerHero.get(0).getmId(),2);
+
+
     }
 
     //helper

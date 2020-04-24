@@ -12,16 +12,21 @@ public class Squad {
     public static ArrayList<Squad> squads=new ArrayList<Squad>();
 
     public Squad(int mMaxSize, String mName, String mCause, ArrayList<Hero> heroes) {
-        this.mId=squads.size();
+
         this.mMaxSize = mMaxSize;
         this.mName = mName;
         this.mCause = mCause;
         this.heroes = heroes;
         squads.add(this);
+        this.mId=squads.size();
     }
 
     public static ArrayList<Squad> getSquads() {
         return squads;
+    }
+
+    public ArrayList<Hero> getHeroes() {
+        return heroes;
     }
 
     public void deleteHero(int id){
