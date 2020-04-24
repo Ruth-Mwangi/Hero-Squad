@@ -23,6 +23,12 @@ public class Hero {
         heroes.add(this);
     }
 
+    public static ArrayList<Hero> getHeroes() {
+        return heroes;
+    }
 
+    public static void clearAll(){
+        heroes.clear();
+    }
 
 }
