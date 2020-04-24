@@ -11,6 +11,16 @@ public class Hero {
     private int mDefence;
     private int mAttack;
     private static ArrayList<Hero> heroes=new ArrayList<Hero>();
+    public Hero(String mName, int mAge, String mSpecialPower, String mWeakness, int mDefence, int mAttack) {
+
+        this.mId=heroes.size()+1;
+        this.mName = mName;
+        this.mAge = mAge;
+        this.mSpecialPower = mSpecialPower;
+        this.mWeakness = mWeakness;
+        this.mDefence = mDefence;
+        this.mAttack = mAttack;
+    }
 
 
 }
