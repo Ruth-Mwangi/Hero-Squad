@@ -34,6 +34,14 @@ public class SquadTest {
         assertTrue(Squad.getSquads().contains(otherSquad));
     }
 
+    @Test
+    public void findById() throws Exception {
+        Squad squad=setUpNewSquad();
+        Squad otherSquad=setUpNewSquad();
+        Squad foundSquad=Squad.findById(1);
+        assertEquals(squad,foundSquad);
+    }
+
     //helper
     private Squad setUpNewSquad() {
         ArrayList<Hero> heroes=new ArrayList<Hero>();
