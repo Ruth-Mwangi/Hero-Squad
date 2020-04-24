@@ -41,6 +41,34 @@ public class HeroTest {
         assertEquals(hero,foundHero);
     }
 
+    @Test
+    public void testIfInstanceIsUpdated() throws Exception {
+        Hero hero=setUpNewHero();
+        int formerID=hero.getmId();
+        boolean formerOccupied=hero.ismOccupied();
+        hero.updateHero(true);
+        assertEquals(formerID,hero.getmId());
+        assertNotEquals(formerOccupied,hero.ismOccupied());
+    }
+
+    @Test
+    public void deleteAll() {
+        Hero hero=setUpNewHero();
+        Hero otherHero=new Hero("Abraxas",60,"Read Minds ","Gets tired fast",20,60);
+        hero.deleteAll();
+        assertEquals(0,Hero.getHeroes().size());
+
+    }
+    @Test
+    public void deleteSpecificHero() {
+        Hero hero=setUpNewHero();
+        Hero heros=setUpNewHero();
+        Hero otherHero=new Hero("Abraxas",60,"Read Minds ","Gets tired fast",20,60);
+        hero.deleteHero(1);
+        assertEquals(2,Hero.getHeroes().size());
+
+
+    }
 
     //helper
     private Hero setUpNewHero() {
