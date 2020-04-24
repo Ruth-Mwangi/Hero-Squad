@@ -11,12 +11,29 @@ public class SquadTest {
 
     @After
     public void tearDown() throws Exception {
+        Squad.clearAll();
     }
     @Test
     public void createInstanceOfSquad() throws Exception{
         Squad squad= setUpNewSquad();
         assertEquals(true,squad instanceof Squad);
     }
+
+    @Test
+    public void returnAllInstances_true() throws Exception {
+        Squad squad=setUpNewSquad();
+        Squad otherSquad=setUpNewSquad();
+        assertEquals(2,Squad.getSquads().size());
+    }
+
+    @Test
+    public void allSquadsContainedInSquad() throws Exception {
+        Squad squad=setUpNewSquad();
+        Squad otherSquad=setUpNewSquad();
+        assertTrue(Squad.getSquads().contains(squad));
+        assertTrue(Squad.getSquads().contains(otherSquad));
+    }
+
     //helper
     private Squad setUpNewSquad() {
         ArrayList<Hero> heroes=new ArrayList<Hero>();
