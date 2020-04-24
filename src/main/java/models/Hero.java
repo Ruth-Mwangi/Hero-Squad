@@ -10,6 +10,7 @@ public class Hero {
     private  String mWeakness;
     private int mDefence;
     private int mAttack;
+    private boolean mOccupied;
     private static ArrayList<Hero> heroes=new ArrayList<Hero>();
     public Hero(String mName, int mAge, String mSpecialPower, String mWeakness, int mDefence, int mAttack) {
 
@@ -20,11 +21,16 @@ public class Hero {
         this.mWeakness = mWeakness;
         this.mDefence = mDefence;
         this.mAttack = mAttack;
+        this.mOccupied=false;
         heroes.add(this);
     }
 
     public static ArrayList<Hero> getHeroes() {
         return heroes;
+    }
+
+    public void updateHero(boolean occupied){
+        this.mOccupied=occupied;
     }
 
     public static Hero findById(int id){
