@@ -1,0 +1,23 @@
+{{#partial "content"}}
+    <form action="/heroes/new" method="post">
+        <h3>Create New Hero !!</h3>
+        <hr>
+        <label for="name">Name</label>
+        <input type="text" name="name" id="name"><br>
+        <label for="age">Age</label>
+        <input type="number" name="age" id="age" ><br>
+        <label for="powers">Special Powers</label>
+        <input type="text" name="powers" id="powers"><br>
+        <label for="weakness">Weakness</label>
+        <input type="text" name="weakness" id="weakness"><br>
+        <label for="defence">Defense</label>
+        <input type="number" name="defence" id="defence" max="100" min="1"><br>
+        <label for="attack">Attack</label>
+        <input type="number" name="attack" id="attack"><br>
+
+        <button type="submit" class="btn btn-success">Create</button>
+
+    </form>
+
+{{/partial}}
+{{> layout.hbs}}
