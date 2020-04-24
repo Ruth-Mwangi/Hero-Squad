@@ -62,10 +62,11 @@ public class HeroTest {
     @Test
     public void deleteSpecificHero() {
         Hero hero=setUpNewHero();
-        Hero heros=setUpNewHero();
+
         Hero otherHero=new Hero("Abraxas",60,"Read Minds ","Gets tired fast",20,60);
         hero.deleteHero(1);
-        assertEquals(2,Hero.getHeroes().size());
+        assertEquals(1,Hero.getHeroes().size());
+        assertEquals(Hero.getHeroes().get(0).getmId(),2);
 
 
     }
