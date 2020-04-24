@@ -24,6 +24,14 @@ public class Squad {
         return squads;
     }
 
+    public void deleteHero(int id){
+        heroes.remove(id-1);
+    }
+    public void deleteAllHeroes(){
+        heroes.clear();
+    }
+
+
     public static void clearAll(){
         squads.clear();
     }
