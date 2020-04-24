@@ -8,10 +8,10 @@ public class Squad {
     private int mMaxSize;
     private String mName;
     private String mCause;
-    private ArrayList<String> heroes;
+    private ArrayList<Hero> heroes;
     public static ArrayList<Squad> squads=new ArrayList<Squad>();
 
-    public Squad(int mMaxSize, String mName, String mCause, ArrayList<String> heroes) {
+    public Squad(int mMaxSize, String mName, String mCause, ArrayList<Hero> heroes) {
         this.mId=
         this.mMaxSize = mMaxSize;
         this.mName = mName;
@@ -19,4 +19,5 @@ public class Squad {
         this.heroes = heroes;
         squads.add(this);
     }
+
 }
