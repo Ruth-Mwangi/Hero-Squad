@@ -1,0 +1,29 @@
+{{#partial "content"}}
+
+
+    {{#if username}}
+    <h1>Welcome {{username}}</h1>
+
+    {{else}}
+        <form action="/welcome" method="post">
+            <h1>Welcome to Hero Squad </h1>
+            <label for="username">Name</label>
+            <input type="text" name="username" id="username">
+            <button type="submit" class="btn btn-primary">Sign In</button>
+
+        </form>
+
+
+
+    {{/if}}
+
+
+
+
+
+
+{{/partial}}
+
+
+
+{{> layout.hbs}}

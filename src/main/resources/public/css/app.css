@@ -1,0 +1,24 @@
+@font-face{
+font-family='q'
+src: url(public/fonts/Handlee/Handlee-Regular.ttf);
+}
+
+body{
+
+    background: #0e4269 ;
+    background-position:center;
+    background-size:contain;
+    color:#171614;
+
+    font-family:'q';
+}
+.nav{
+    background-color:#bf675b;
+
+}
+
+.active,a{
+color:black;
+background-color:#bf675b;
+width:fit-content;
+}
