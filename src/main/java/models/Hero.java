@@ -13,7 +13,7 @@ public class Hero {
     private static ArrayList<Hero> heroes=new ArrayList<Hero>();
     public Hero(String mName, int mAge, String mSpecialPower, String mWeakness, int mDefence, int mAttack) {
 
-        this.mId=heroes.size()+1;
+        this.mId=heroes.size();
         this.mName = mName;
         this.mAge = mAge;
         this.mSpecialPower = mSpecialPower;
@@ -26,6 +26,12 @@ public class Hero {
     public static ArrayList<Hero> getHeroes() {
         return heroes;
     }
+
+    public static Hero findById(int id){
+
+        return heroes.get(id-1);
+    }
+
 
     public static void clearAll(){
         heroes.clear();
