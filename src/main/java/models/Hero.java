@@ -14,7 +14,7 @@ public class Hero {
     private static ArrayList<Hero> heroes=new ArrayList<Hero>();
     public Hero(String mName, int mAge, String mSpecialPower, String mWeakness, int mDefence, int mAttack) {
 
-        this.mId=heroes.size();
+
         this.mName = mName;
         this.mAge = mAge;
         this.mSpecialPower = mSpecialPower;
@@ -23,6 +23,7 @@ public class Hero {
         this.mAttack = mAttack;
         this.mOccupied=false;
         heroes.add(this);
+        this.mId=heroes.size();
     }
 
     public static ArrayList<Hero> getHeroes() {
