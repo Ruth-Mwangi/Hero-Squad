@@ -38,9 +38,39 @@ public class Hero {
         return heroes.get(id-1);
     }
 
-
     public static void clearAll(){
         heroes.clear();
     }
 
+    public String getmName() {
+        return mName;
+    }
+
+    public int getmId() {
+        return mId;
+    }
+
+    public int getmAge() {
+        return mAge;
+    }
+
+    public String getmSpecialPower() {
+        return mSpecialPower;
+    }
+
+    public String getmWeakness() {
+        return mWeakness;
+    }
+
+    public int getmDefence() {
+        return mDefence;
+    }
+
+    public int getmAttack() {
+        return mAttack;
+    }
+
+    public boolean ismOccupied() {
+        return mOccupied;
+    }
 }
