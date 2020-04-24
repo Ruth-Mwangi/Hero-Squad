@@ -50,4 +50,20 @@ public class Squad {
     public static Squad findById(int id){
         return squads.get(id-1);
     }
+
+    public int getmId() {
+        return mId;
+    }
+
+    public int getmMaxSize() {
+        return mMaxSize;
+    }
+
+    public String getmName() {
+        return mName;
+    }
+
+    public String getmCause() {
+        return mCause;
+    }
 }
