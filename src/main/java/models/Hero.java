@@ -33,6 +33,13 @@ public class Hero {
         this.mOccupied=occupied;
     }
 
+    public void deleteHero(int id){
+        heroes.remove(id-1);
+    }
+    public void deleteAll(){
+        heroes.clear();
+    }
+
     public static Hero findById(int id){
 
         return heroes.get(id-1);
