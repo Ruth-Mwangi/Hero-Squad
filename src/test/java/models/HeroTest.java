@@ -33,6 +33,15 @@ public class HeroTest {
         assertTrue(Hero.getHeroes().contains(otherHero));
     }
 
+    @Test
+    public void findById() throws Exception{
+        Hero hero=setUpNewHero();
+        Hero otherHero=new Hero("Abraxas",60,"Read Minds ","Gets tired fast",20,60);
+        Hero foundHero=Hero.findById(1);
+        assertEquals(hero,foundHero);
+    }
+
+
     //helper
     private Hero setUpNewHero() {
         return new Hero("Absorbing Man",30,"Absorbing ","Can Absorb evil thought",20,60);
