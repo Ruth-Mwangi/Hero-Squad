@@ -32,7 +32,7 @@ public class Hero {
         this.occupied=occupied;
     }
 
-    public void deleteHero(int id){
+    public void deleteHero(){
         heroes.remove(id-1);
     }
     public void deleteAll(){
@@ -42,6 +42,10 @@ public class Hero {
     public static Hero findById(int id){
 
         return heroes.get(id-1);
+    }
+
+    public void setId(int id) {
+        this.id = id;
     }
 
     public static void clearAll(){

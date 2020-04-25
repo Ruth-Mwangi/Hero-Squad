@@ -42,32 +42,13 @@ public class SquadTest {
         assertEquals(squad,foundSquad);
     }
 
-    @Test
-    public void deleteHeroFromSquad() {
-        Squad squad=setUpNewSquad();
-        Squad otherSquad=setUpNewSquad();
-        ArrayList<Hero> formerHero=squad.getHeroes();
-        squad.deleteHero(1);
-        assertEquals(1,formerHero.size());
-        assertEquals(formerHero.get(0).getId(),2);
 
-    }
-
-    @Test
-    public void deleteAllHeroes() {
-        Squad squad=setUpNewSquad();
-        Squad otherSquad=setUpNewSquad();
-        ArrayList<Hero> formerHero=squad.getHeroes();
-        squad.deleteAllHeroes();
-        assertEquals(0,formerHero.size());
-
-    }
 
     @Test
     public void deleteSquadByID() {
         Squad squad=setUpNewSquad();
         Squad otherSquad=setUpNewSquad();
-        squad.deleteSquad(1);
+        squad.deleteSquad();
         assertEquals(1,Squad.getSquads().size());
         assertEquals(Squad.getSquads().get(0).getId(),2);
 
@@ -76,7 +57,7 @@ public class SquadTest {
     public void deleteAllSquads() {
         Squad squad=setUpNewSquad();
         Squad otherSquad=setUpNewSquad();
-        Squad.getSquads().clear();
+        Squad.deleteAllSquads();
         assertEquals(0,Squad.getSquads().size());
 
     }

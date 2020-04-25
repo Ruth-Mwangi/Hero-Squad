@@ -124,6 +124,43 @@ public class App {
         },new HandlebarsTemplateEngine());
 
 
+        //delete hero
+
+        get("/hero/:id/delete",(request, response) -> {
+            Map<String, Object> model = new HashMap<>();
+            int idOfHeroToDelete=Integer.parseInt(request.params(":id"));
+            Hero foundHero=Hero.findById(idOfHeroToDelete);
+            for (int i=idOfHeroToDelete;i<Hero.getHeroes().size();i++){
+                Hero.getHeroes().get(i).setId(Hero.getHeroes().get(i).getId()-1);
+            }
+            foundHero.deleteHero();
+            ArrayList<Hero> heroes = Hero.getHeroes();
+            model.put("heroes", heroes);
+            return new ModelAndView(model,"hero-view.hbs");
+
+        },new HandlebarsTemplateEngine());
+        get("/squad/:id/delete",(request, response) -> {
+            Map<String, Object> model = new HashMap<>();
+            int idOfSquadToDelete=Integer.parseInt(request.params(":id"));
+            Squad foundSquad=Squad.findById(idOfSquadToDelete);
+            ArrayList<Hero> heroes=foundSquad.getHeroes();
+
+            for(int i=0;i<heroes.size();i++){
+                heroes.get(i).updateHero(false);
+            }
+            for (int i=idOfSquadToDelete;i<Squad.getSquads().size();i++){
+                Squad.getSquads().get(i).setId(Squad.getSquads().get(i).getId()-1);
+            }
+            foundSquad.deleteSquad();
+
+            ArrayList<Squad> squads = Squad.getSquads();
+            model.put("squads", squads);
+            return new ModelAndView(model,"squad-view.hbs");
+
+        },new HandlebarsTemplateEngine());
+
+
+
 
 
 
