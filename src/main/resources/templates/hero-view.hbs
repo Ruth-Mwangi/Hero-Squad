@@ -1,0 +1,18 @@
+{{#partial "content"}}
+    <h1>Post list!</h1>
+
+    {{#if heroes}}
+        {{ heroes }} {{name}} {{heroes.name}} {{heroes.mName}}
+        {{#each heroes }}
+            <p>Hero</p>
+            <p>{{ heroes }} {{name}} {{heroes.name}} {{heroes.mName}} <a href="/heroes/{{id}}">read more...</a></p>
+        {{/each}}
+    {{else}}
+        <p>No posts!</p>
+    {{/if}}
+
+{{/partial}}
+
+
+
+{{> layout.hbs}}

@@ -12,15 +12,15 @@ public class Hero {
     private int mAttack;
     private boolean mOccupied;
     private static ArrayList<Hero> heroes=new ArrayList<Hero>();
-    public Hero(String mName, int mAge, String mSpecialPower, String mWeakness, int mDefence, int mAttack) {
+    public Hero(String name, int age, String powers, String weakness, int defence, int attack) {
 
 
-        this.mName = mName;
-        this.mAge = mAge;
-        this.mSpecialPower = mSpecialPower;
-        this.mWeakness = mWeakness;
-        this.mDefence = mDefence;
-        this.mAttack = mAttack;
+        this.mName = name;
+        this.mAge = age;
+        this.mSpecialPower = powers;
+        this.mWeakness = weakness;
+        this.mDefence = defence;
+        this.mAttack = attack;
         this.mOccupied=false;
         heroes.add(this);
         this.mId=heroes.size();
