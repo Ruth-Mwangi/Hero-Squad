@@ -3,19 +3,23 @@
     <form action="/squads/new" method="post">
         <h3>Create New Squad !!</h3>
         <hr>
-        <label for="name">Name</label>
-        <input type="text" name="name" id="name"><br>
-        <label for="size">Max size</label>
-        <input type="number" name="size" id="size" ><br>
-        <label for="cause">Cause</label>
-        <input type="text" name="cause" id="cause"><br>
-        <label for="heroes">Available Heroes</label>
+        <div class="form">
+            <label for="name">Name</label><br>
+            <input type="text" name="name" id="name"><br>
+            <label for="size">Max size</label><br>
+            <input type="number" name="size" id="size" ><br>
+            <label for="cause">Cause</label><br>
+            <input type="text" name="cause" id="cause"><br>
+
+        </div>
+
+        <label for="heroes">Available Heroes</label><br>
         {{#if heroes}}
             {{#each heroes}}
                 {{#if occupied}}
 
                 {{else}}
-                    <p><input type="checkbox" name="heroes" id={{id}} value={{id}}> {{name}}</p>
+                    <h3><input type="checkbox" name="heroes" id={{id}} value={{id}}> {{name}}</h3>
                 {{/if}}
 
 
