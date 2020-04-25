@@ -2,6 +2,7 @@ import models.Hero;
 import spark.ModelAndView;
 import spark.template.handlebars.HandlebarsTemplateEngine;
 
+import java.awt.*;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
@@ -12,11 +13,16 @@ public class App {
     public static void main(String[] args) {
 
         staticFileLocation("/public");
-
+        Hero hero1 =new Hero("Absorbing Man",30,"Absorbing ","Can Absorb evil thought",20,60);
+        Hero hero2 =new Hero("A-Bomb",30,"Throw bombs for long distances ","Water ",20,60);
+        Hero hero3 =new Hero("Mike",30,"can talk with animals ","pretty girls",20,60);
+        Hero hero4 =new Hero("Stretch",30,"Stretching ","Temparature above 40 degrees",20,60);
+        Hero hero5 =new Hero("Poison Ivy",30,"Vast knowledge in plants ","Emotional",20,60);
         //start session
         get("/", (request, response) -> {
             Map<String, Object> model = new HashMap<String, Object>();
             model.put("username", request.session().attribute("username"));
+
             return new ModelAndView(model, "index.hbs");
         }, new HandlebarsTemplateEngine());
 
@@ -65,6 +71,8 @@ public class App {
             int idOfHeroToFind = Integer.parseInt(request.params(":id")); //pull id - must match route segment
              Hero foundHero = Hero.findById(idOfHeroToFind); //use it to find post
             model.put("hero", foundHero); //add it to model for template to display
+            ArrayList<Hero> heroes = Hero.getHeroes();
+            model.put("heroes", heroes);
             return new ModelAndView(model, "hero-view.hbs"); //individual post page.
         }, new HandlebarsTemplateEngine());
 
