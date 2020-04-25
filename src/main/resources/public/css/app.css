@@ -5,25 +5,33 @@ body{
     background: #0e4269 ;
     background-position:center;
     background-size:contain;
-    color:white;
+    color:black;
     font-family:monospace;
-    font-size:x-large;
+
 
 }
-li{
-list-style:none;
-}
+
 .nav{
-    background-color:#bf675b;
-
+    background-color:#171614;
+    color:white;
 }
 
 a,a:hover{
 color:#171614
+
 }
 .active{
 
-color:#171614;
-background-color:#bf675b;
+color:white;
+
 width:fit-content;
+}
+.active a,a:hover{
+
+color:white;
+width:fit-content;
+background:#171614;
+}
+.active a:hover{
+color:black;
 }

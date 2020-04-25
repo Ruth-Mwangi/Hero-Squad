@@ -2,8 +2,16 @@
 
 
     {{#if username}}
-        <h1>Welcome {{username}} to Jero Squad</h1>
-        <button class="btn btn-success"><a href="/create/hero">Create Hero</a></button>
+
+        <div class="row">
+            <h1>Welcome {{username}} to Hero Squad</h1>
+        </div>
+        <div class="row">
+            <a href="/create/hero"><button class="btn btn-success">Create Hero</button></a>
+            <a href="/create/squad"><button class="btn btn-success">Create Squad</button></a>
+
+        </div>
+
 
     {{else}}
         <form action="/welcome" method="post">

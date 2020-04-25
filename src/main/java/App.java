@@ -1,4 +1,5 @@
 import models.Hero;
+import models.Squad;
 import spark.ModelAndView;
 import spark.template.handlebars.HandlebarsTemplateEngine;
 
@@ -76,6 +77,51 @@ public class App {
             return new ModelAndView(model, "hero-view.hbs"); //individual post page.
         }, new HandlebarsTemplateEngine());
 
+        //squad
+        get("/create/squad",(request, response) -> {
+            Map<String, Object> model = new HashMap<>();
+            model.put("heroes",Hero.getHeroes());
+            return new ModelAndView(model,"squad-form.hbs");
+        },new HandlebarsTemplateEngine());
+        post("/squads/new", (request, response) -> { //URL to make new post on POST route
+            Map<String, Object> model = new HashMap<>();
+
+            String name = request.queryParams("name");
+            int maxSize=Integer.parseInt(request.queryParams("size"));
+            String cause=request.queryParams("cause");
+            ArrayList<Hero> heroes=new ArrayList<>();
+            if(request.queryParamsValues("heroes")!=null){
+                String[] heroesList=request.queryParamsValues("heroes");
+
+                for(int i=0;i<heroesList.length;i++){
+
+                    Hero addHero=Hero.findById(Integer.parseInt(heroesList[i]));
+                    addHero.updateHero(true);
+                    heroes.add(addHero);
+                }
+            }
+            Squad newSquad= new Squad(maxSize,name,cause,heroes);
+            model.put("heroes",Hero.getHeroes());
+
+            return new ModelAndView(model, "squad-form.hbs");
+        }, new HandlebarsTemplateEngine());
+
+        get("/squad",(request, response) -> {
+            Map<String, Object> model = new HashMap<>();
+            model.put("squads",Squad.getSquads());
+            return new ModelAndView(model,"squad-view.hbs");
+
+        },new HandlebarsTemplateEngine());
+
+        get("/squads/:id",(request, response) -> {
+            Map<String, Object> model = new HashMap<>();
+            int idOfSquadToFind=Integer.parseInt(request.params(":id"));
+            Squad foundSquad=Squad.findById(idOfSquadToFind);
+            model.put("squad",foundSquad);
+            ArrayList<Squad> squads=Squad.getSquads();
+            model.put("squads",squads);
+            return new ModelAndView(model,"squad-view.hbs");
+        },new HandlebarsTemplateEngine());
 
 
 
