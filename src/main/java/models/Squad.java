@@ -4,21 +4,21 @@ import java.util.ArrayList;
 
 public class Squad {
 
-    private int mId;
-    private int mMaxSize;
-    private String mName;
-    private String mCause;
+    private int id;
+    private int maxSize;
+    private String name;
+    private String cause;
     private ArrayList<Hero> heroes;
     public static ArrayList<Squad> squads=new ArrayList<Squad>();
 
-    public Squad(int mMaxSize, String mName, String mCause, ArrayList<Hero> heroes) {
+    public Squad(int maxSize, String name, String cause, ArrayList<Hero> heroes) {
 
-        this.mMaxSize = mMaxSize;
-        this.mName = mName;
-        this.mCause = mCause;
+        this.maxSize = maxSize;
+        this.name = name;
+        this.cause = cause;
         this.heroes = heroes;
         squads.add(this);
-        this.mId=squads.size();
+        this.id=squads.size();
     }
 
     public static ArrayList<Squad> getSquads() {
@@ -51,19 +51,19 @@ public class Squad {
         return squads.get(id-1);
     }
 
-    public int getmId() {
-        return mId;
+    public int getId() {
+        return id;
     }
 
-    public int getmMaxSize() {
-        return mMaxSize;
+    public int getMaxSize() {
+        return maxSize;
     }
 
-    public String getmName() {
-        return mName;
+    public String getName() {
+        return name;
     }
 
-    public String getmCause() {
-        return mCause;
+    public String getCause() {
+        return cause;
     }
 }

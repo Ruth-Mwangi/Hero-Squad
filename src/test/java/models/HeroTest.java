@@ -44,11 +44,11 @@ public class HeroTest {
     @Test
     public void testIfInstanceIsUpdated() throws Exception {
         Hero hero=setUpNewHero();
-        int formerID=hero.getmId();
-        boolean formerOccupied=hero.ismOccupied();
+        int formerID=hero.getId();
+        boolean formerOccupied=hero.isOccupied();
         hero.updateHero(true);
-        assertEquals(formerID,hero.getmId());
-        assertNotEquals(formerOccupied,hero.ismOccupied());
+        assertEquals(formerID,hero.getId());
+        assertNotEquals(formerOccupied,hero.isOccupied());
     }
 
     @Test
@@ -66,7 +66,7 @@ public class HeroTest {
         Hero otherHero=new Hero("Abraxas",60,"Read Minds ","Gets tired fast",20,60);
         hero.deleteHero(1);
         assertEquals(1,Hero.getHeroes().size());
-        assertEquals(Hero.getHeroes().get(0).getmId(),2);
+        assertEquals(Hero.getHeroes().get(0).getId(),2);
 
 
     }

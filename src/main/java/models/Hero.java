@@ -3,27 +3,25 @@ package models;
 import java.util.ArrayList;
 
 public class Hero {
-    private String mName;
-    private int mId;
-    private int mAge;
-    private String mSpecialPower;
-    private  String mWeakness;
-    private int mDefence;
-    private int mAttack;
-    private boolean mOccupied;
+    private String name;
+    private int id;
+    private int age;
+    private String powers;
+    private  String weakness;
+    private int defence;
+    private int attack;
+    private boolean occupied;
     private static ArrayList<Hero> heroes=new ArrayList<Hero>();
+
     public Hero(String name, int age, String powers, String weakness, int defence, int attack) {
-
-
-        this.mName = name;
-        this.mAge = age;
-        this.mSpecialPower = powers;
-        this.mWeakness = weakness;
-        this.mDefence = defence;
-        this.mAttack = attack;
-        this.mOccupied=false;
+        this.name = name;
+        this.age = age;
+        this.powers = powers;
+        this.weakness = weakness;
+        this.defence = defence;
+        this.attack = attack;
         heroes.add(this);
-        this.mId=heroes.size();
+        this.id=heroes.size();
     }
 
     public static ArrayList<Hero> getHeroes() {
@@ -31,7 +29,7 @@ public class Hero {
     }
 
     public void updateHero(boolean occupied){
-        this.mOccupied=occupied;
+        this.occupied=occupied;
     }
 
     public void deleteHero(int id){
@@ -50,35 +48,35 @@ public class Hero {
         heroes.clear();
     }
 
-    public String getmName() {
-        return mName;
+    public String getName() {
+        return name;
     }
 
-    public int getmId() {
-        return mId;
+    public int getId() {
+        return id;
     }
 
-    public int getmAge() {
-        return mAge;
+    public int getAge() {
+        return age;
     }
 
-    public String getmSpecialPower() {
-        return mSpecialPower;
+    public String getPowers() {
+        return powers;
     }
 
-    public String getmWeakness() {
-        return mWeakness;
+    public String getWeakness() {
+        return weakness;
     }
 
-    public int getmDefence() {
-        return mDefence;
+    public int getDefence() {
+        return defence;
     }
 
-    public int getmAttack() {
-        return mAttack;
+    public int getAttack() {
+        return attack;
     }
 
-    public boolean ismOccupied() {
-        return mOccupied;
+    public boolean isOccupied() {
+        return occupied;
     }
 }

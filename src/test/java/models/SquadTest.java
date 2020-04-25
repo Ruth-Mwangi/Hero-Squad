@@ -49,7 +49,7 @@ public class SquadTest {
         ArrayList<Hero> formerHero=squad.getHeroes();
         squad.deleteHero(1);
         assertEquals(1,formerHero.size());
-        assertEquals(formerHero.get(0).getmId(),2);
+        assertEquals(formerHero.get(0).getId(),2);
 
     }
 
@@ -69,7 +69,7 @@ public class SquadTest {
         Squad otherSquad=setUpNewSquad();
         squad.deleteSquad(1);
         assertEquals(1,Squad.getSquads().size());
-        assertEquals(Squad.getSquads().get(0).getmId(),2);
+        assertEquals(Squad.getSquads().get(0).getId(),2);
 
     }
     @Test
