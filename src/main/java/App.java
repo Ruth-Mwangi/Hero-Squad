@@ -1,3 +1,4 @@
+import com.sun.tools.javac.util.JCDiagnostic;
 import models.Hero;
 import models.Squad;
 import spark.ModelAndView;
@@ -89,6 +90,10 @@ public class App {
         get("/squads/delete",(request, response) -> {
             Map<String, Object> model = new HashMap<String, Object>();
             Squad.clearAll();
+            ArrayList<Hero> heroes=Hero.getHeroes();
+            for (int i=0;i<heroes.size();i++){
+                heroes.get(i).updateHero(false);
+            }
             model.put("squads",Squad.getSquads());
             return new ModelAndView(model,"squad-view.hbs");
 
@@ -96,6 +101,19 @@ public class App {
 
         get("/create/squad",(request, response) -> {
             Map<String, Object> model = new HashMap<>();
+            ArrayList<Hero> heroes=Hero.getHeroes();
+            ArrayList<Hero> heroList=new ArrayList<>();
+            for (int i=0;i<heroes.size();i++){
+                if(heroes.get(i).isOccupied()==false){
+                    heroList.add(heroes.get(i));
+                }
+            }
+            if(heroList.size()==0){
+                JOptionPane.showMessageDialog(null,
+                        "Oops there are no available heroes. Create new heroes or delete squads to free up heroes",
+                        "Warning",JOptionPane.WARNING_MESSAGE);
+
+            }
             model.put("heroes",Hero.getHeroes());
             return new ModelAndView(model,"squad-form.hbs");
         },new HandlebarsTemplateEngine());
@@ -110,18 +128,21 @@ public class App {
                 String[] heroesList=request.queryParamsValues("heroes");
 
                 for(int i=0;i<heroesList.length;i++){
-
                     Hero addHero=Hero.findById(Integer.parseInt(heroesList[i]));
-                    addHero.updateHero(true);
-                    if(heroes.size()<=maxSize){
+                    if(heroes.size()<maxSize){
+                        addHero.updateHero(true);
                         heroes.add(addHero);
                     }
                     else {
-
+                        JOptionPane.showMessageDialog(null,
+                                "You can only add "+maxSize+" heroes to your squad. Excess members have not been " +
+                                        "added",
+                                "Warning",JOptionPane.WARNING_MESSAGE);
                     }
                 }
             }
             Squad newSquad= new Squad(maxSize,name,cause,heroes);
+
             model.put("heroes",Hero.getHeroes());
 
             return new ModelAndView(model, "squad-form.hbs");
