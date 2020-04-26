@@ -35,9 +35,7 @@ public class Hero {
     public void deleteHero(){
         heroes.remove(id-1);
     }
-    public void deleteAll(){
-        heroes.clear();
-    }
+
 
     public static Hero findById(int id){
 

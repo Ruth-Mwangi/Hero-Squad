@@ -36,9 +36,7 @@ public class Squad {
     public void deleteSquad(){
         squads.remove(id-1);
     }
-    public static void deleteAllSquads(){
-        squads.clear();
-    }
+
 
 
     public static void clearAll(){

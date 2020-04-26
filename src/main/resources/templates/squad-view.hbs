@@ -27,6 +27,7 @@
                         <p class="card-text">Cause : {{squad.cause}}</p><br>
                         <p>Heroes :</p>
 
+
                         {{#each squad.heroes}}
 
                             <li class="card-text">{{name}}</li><br>
@@ -53,7 +54,12 @@
 
 
 {{/partial}}
-
+{{#partial "footer"}}
+    {{#if squads}}
+        <a href="/squads/delete"><button class="btn btn-lg btn-danger"> Delete All Squads</button></a>
+    {{else}}
+    {{/if}}
+{{/partial}}
 
 
 {{> layout.hbs}}

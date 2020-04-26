@@ -3,6 +3,7 @@ import models.Squad;
 import spark.ModelAndView;
 import spark.template.handlebars.HandlebarsTemplateEngine;
 
+import javax.swing.*;
 import java.awt.*;
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -38,6 +39,13 @@ public class App {
         }, new HandlebarsTemplateEngine());
 
         //hero form
+        get("/heroes/delete",(request, response) -> {
+            Map<String, Object> model = new HashMap<String, Object>();
+            Hero.clearAll();
+            model.put("heroes",Hero.getHeroes());
+            return new ModelAndView(model,"hero-view.hbs");
+
+        },new HandlebarsTemplateEngine());
         get("/create/hero",(request, response) -> {
             Map<String, Object> model = new HashMap<String, Object>();
             return new ModelAndView(model, "hero-form.hbs");
@@ -78,6 +86,14 @@ public class App {
         }, new HandlebarsTemplateEngine());
 
         //squad
+        get("/squads/delete",(request, response) -> {
+            Map<String, Object> model = new HashMap<String, Object>();
+            Squad.clearAll();
+            model.put("squads",Squad.getSquads());
+            return new ModelAndView(model,"squad-view.hbs");
+
+        },new HandlebarsTemplateEngine());
+
         get("/create/squad",(request, response) -> {
             Map<String, Object> model = new HashMap<>();
             model.put("heroes",Hero.getHeroes());
@@ -97,7 +113,12 @@ public class App {
 
                     Hero addHero=Hero.findById(Integer.parseInt(heroesList[i]));
                     addHero.updateHero(true);
-                    heroes.add(addHero);
+                    if(heroes.size()<=maxSize){
+                        heroes.add(addHero);
+                    }
+                    else {
+
+                    }
                 }
             }
             Squad newSquad= new Squad(maxSize,name,cause,heroes);

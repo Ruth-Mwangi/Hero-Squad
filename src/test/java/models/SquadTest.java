@@ -57,7 +57,7 @@ public class SquadTest {
     public void deleteAllSquads() {
         Squad squad=setUpNewSquad();
         Squad otherSquad=setUpNewSquad();
-        Squad.deleteAllSquads();
+        Squad.clearAll();
         assertEquals(0,Squad.getSquads().size());
 
     }

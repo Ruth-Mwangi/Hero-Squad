@@ -55,7 +55,7 @@ public class HeroTest {
     public void deleteAll() {
         Hero hero=setUpNewHero();
         Hero otherHero=new Hero("Abraxas",60,"Read Minds ","Gets tired fast",20,60);
-        hero.deleteAll();
+        hero.clearAll();
         assertEquals(0,Hero.getHeroes().size());
 
     }
