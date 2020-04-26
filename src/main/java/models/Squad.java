@@ -44,7 +44,12 @@ public class Squad {
     }
 
     public static Squad findById(int id){
-        return squads.get(id-1);
+        try {
+            return squads.get(id-1);
+        } catch (IndexOutOfBoundsException exception) {
+            return null;
+        }
+
     }
 
     public int getId() {

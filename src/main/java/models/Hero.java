@@ -38,8 +38,12 @@ public class Hero {
 
 
     public static Hero findById(int id){
+        try {
+            return heroes.get(id-1);
+        } catch (IndexOutOfBoundsException exception) {
+            return null;
+        }
 
-        return heroes.get(id-1);
     }
 
     public void setId(int id) {
