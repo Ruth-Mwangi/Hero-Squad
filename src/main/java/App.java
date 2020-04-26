@@ -1,11 +1,11 @@
-import com.sun.tools.javac.util.JCDiagnostic;
+
 import models.Hero;
 import models.Squad;
 import spark.ModelAndView;
 import spark.template.handlebars.HandlebarsTemplateEngine;
 
 import javax.swing.*;
-import java.awt.*;
+
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
