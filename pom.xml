@@ -77,7 +77,7 @@
                 <configuration>
                     <jdkVersion>1.8</jdkVersion>
                     <!-- Change this to YOUR application name! -->
-                    <appName>ruth-hero-squad</appName>
+                    <appName>ruth-hero-squads</appName>
                     <processTypes>
                         <web>java -jar target/Hero-Squad-1.0-jar-with-dependencies.jar</web>
                     </processTypes>
