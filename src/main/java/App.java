@@ -4,7 +4,7 @@ import models.Squad;
 import spark.ModelAndView;
 import spark.template.handlebars.HandlebarsTemplateEngine;
 
-import javax.swing.*;
+
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -115,12 +115,7 @@ public class App {
                     heroList.add(heroes.get(i));
                 }
             }
-            if(heroList.size()==0){
-                JOptionPane.showMessageDialog(null,
-                        "Oops there are no available heroes. Create new heroes or delete squads to free up heroes",
-                        "Warning",JOptionPane.WARNING_MESSAGE);
 
-            }
             model.put("heroes",Hero.getHeroes());
             return new ModelAndView(model,"squad-form.hbs");
         },new HandlebarsTemplateEngine());
@@ -140,12 +135,7 @@ public class App {
                         addHero.updateHero(true);
                         heroes.add(addHero);
                     }
-                    else {
-                        JOptionPane.showMessageDialog(null,
-                                "You can only add "+maxSize+" heroes to your squad. Excess members have not been " +
-                                        "added",
-                                "Warning",JOptionPane.WARNING_MESSAGE);
-                    }
+
                 }
             }
             Squad newSquad= new Squad(maxSize,name,cause,heroes);
